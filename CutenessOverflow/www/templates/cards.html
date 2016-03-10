@@ -1,0 +1,20 @@
+<ion-view title="Cards">
+	<!--ion-header-bar class="bar-stable">
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+		<h1 class="title">Cuteness Overflow</h1>
+	</ion-header-bar-->
+	<ion-nav-buttons side="left">
+		<button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+	</ion-nav-buttons>
+	<ion-content class="has-header">
+		<td-cards>
+			<td-card ng-repeat="item in items" on-destroy="cardDestroyed($index)" on-transition-left="cardSwipedLeft($index)" on-transition-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}">
+				<div class="image" ng-controller="CardCtrl">
+					<div class="no-text">Nope</div>
+					<img ng-src="{{item.images.standard_resolution.url}}" ng-if="item.images.standard_resolution.url.startsWith('https')">
+					<div class="yes-text">Cute</div>
+				</div>
+			</td-card>
+		</td-cards>
+	</ion-content>
+</ion-view>
